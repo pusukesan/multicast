@@ -24,7 +24,7 @@ def main():
     try:
       hoge = sock.recv(bufsize)
       rcv_time = datetime.now().strftime("%Y:%m:%d:%H:%M:%S.%f")
-      print(hoge +":"+ rcv_time)
+      print(hoge.decode('utf-8') +":"+ rcv_time)
       downcount = 0
     except socket.timeout:  
       downcount += 1
