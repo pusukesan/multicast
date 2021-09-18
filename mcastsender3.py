@@ -18,7 +18,7 @@ sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_IF, socket.inet_aton(LOCA
 while True:
     MESSAGE = 'MulticastMessage:{0}:'.format(MESSAGE_COUNT).encode('utf-8')
     SEND_TIME = datetime.now().strftime("%Y:%m:%d:%H:%M:%S.%f") 
-    DATA = MESSAGE + SEND_TIME
+    DATA = MESSAGE + SEND_TIME.encode('utf-8')
     print(DATA)
     sock.sendto(DATA, (MCAST_GRP, MCAST_PORT))
     MESSAGE_COUNT = MESSAGE_COUNT + 1
